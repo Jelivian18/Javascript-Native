@@ -1,0 +1,23 @@
+<script>
+  function besar_diskon(p) {
+    let diskon = 0;
+    p = p.toUpperCase();
+    switch (p) {
+      case "TI":
+        diskon = 0;
+        break;
+      case "SI":
+      case "RPL":
+        diskon = 5;
+        break;
+      case "KA":
+      case "TKOM":
+        diskon = 7;
+        break;
+      default:
+        diskon = "Error";
+    }
+    return diskon;
+  }
+  document.write("Diskon untuk prodi TI =" + besar_diskon("ti") + "%");
+</script>

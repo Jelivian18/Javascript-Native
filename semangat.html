@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Belajar javaScript di Seri Belajar JS</title>
+  </head>
+  <body>
+    <h1>Belajar JavaScript</h1>
+    <p>Saya sedang belajar JavaScript di belajar-js</p>
+    Klik tombol ini untuk menambahkan kalimat baru:
+    <button id="tambah" onclick="tambahSemangat()">Semangat..!!</button>
+    <div id="div_semangat"></div>
+    <script>
+      function tambahSemangat() {
+        let a = document.getElementById("div_semangat");
+        a.innerHTML += "<p>Sedang belajar JavaScript, semangat...!!!</p>";
+      }
+    </script>
+  </body>
+</html>

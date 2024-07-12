@@ -1,0 +1,151 @@
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+  var i;
+  var array1 = ["Markisa", "Strawberry", "Alpukat", "Delima", "Kurma"];
+  let materi = ["Panjang Array", "Konversi ke string", "Sort Array", "Ubah nilai elemen", "Array.join()", "Array.pop()", "Array.push()", "Array.shift()", "Array.unshift()", "Gabung Array", "Array.splice()", "Array.slice()", "Hapus Elemen"];
+
+  let jumlah_materi = materi.length;
+
+  // Load the number of completed items from localStorage
+  let materi_sudah = parseInt(localStorage.getItem("materi_sudah") || "0");
+
+  // Function to update the display based on the completed items
+  function updateDisplay() {
+    for (i = 0; i < jumlah_materi; i++) {
+      if (i < materi_sudah) {
+      }
+    }
+  }
+</script>
+<style>
+  body {
+    font-family: "verdana", monospace;
+    font-size: 10pt;
+  }
+  h4 {
+    color: blue;
+  }
+  .list_materi {
+    transition: 0.2s;
+    cursor: pointer;
+    color: gray;
+  }
+  .list_materi:hover {
+    color: blue;
+    letter-spacing: 2px;
+    background-color: #efe;
+  }
+  .sudah {
+    color: green !important;
+    font-weight: bold;
+  }
+  .grid-container {
+    display: grid;
+    column-gap: 5px;
+    grid-template-columns: 220px auto;
+  }
+  .grid-container div {
+    border: solid 1px #ccc;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  #hasil {
+    margin-top: 15px;
+  }
+  .list_hasil {
+    color: gray;
+  }
+</style>
+<div class="grid-container">
+  <div>
+    <h4 align="center">JS :: ARRAY METHODS</h4>
+
+    <ol>
+      <script>
+        var sudah;
+        for (i = 0; i < jumlah_materi; i++) {
+          sudah = "";
+          if (i < materi_sudah) sudah = "sudah";
+          document.write("<li class='list_materi " + sudah + "' id='list_materi__" + i + "'>" + materi[i] + "</li>");
+        }
+      </script>
+    </ol>
+    <hr style="color: #eee" />
+    <p align="center" style="color: #aaa">By: JelivianMawu</p>
+  </div>
+  <div>
+    <pre>array1 = ["Markisa", "Strawberry", "Alpukat", "Delima", "Kurma"]
+          <br>index:    0            1             2          3        4
+      </pre>
+    <div id="hasil">
+      Hasil:
+      <ol>
+        <script>
+          var sudah;
+          var j;
+          for (i = 0; i < jumlah_materi; i++) {
+            j = i + 1;
+            sudah = "";
+            if (i < materi_sudah) sudah = "sudah";
+            document.write("<li class='list_hasil " + sudah + "' id='list_hasil__" + i + "'>hasil" + j + ": <span id='hasil" + j + "'></span></li>");
+          }
+        </script>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    updateDisplay(); // Update the display when the page loads
+
+    $(".list_materi").click(function () {
+      let id = $(this).prop("id");
+      let rid = id.split("__");
+      let index = parseInt(rid[1]);
+      let materi_sudah = index + 1;
+      let j = confirm("Yakin set materi sudah materi-" + materi_sudah + "?");
+      if (!j) return;
+      localStorage.setItem("materi_sudah", materi_sudah);
+      $(this).addClass("sudah");
+      $("#list_hasil__" + index).addClass("sudah");
+    });
+  });
+</script>
+<script>
+  document.getElementById("hasil1").innerHTML = array1.length + " element";
+
+  document.getElementById("hasil2").innerHTML = array1;
+
+  document.getElementById("hasil3").innerHTML = array1.sort();
+
+  array1[2] = "kelengkeng";
+  document.getElementById("hasil4").innerHTML = array1;
+
+  document.getElementById("hasil5").innerHTML = array1.join("~");
+
+  array1.pop();
+  document.getElementById("hasil6").innerHTML = array1.join("~");
+
+  array1.push("Durian");
+  document.getElementById("hasil7").innerHTML = array1.join("~");
+
+  array1.shift();
+  document.getElementById("hasil8").innerHTML = array1.join("~");
+
+  array1.unshift("Rambutan");
+  document.getElementById("hasil9").innerHTML = array1.join("~");
+
+  array2 = ["kurma", "Tomat", "Lecci"];
+  array3 = array1.concat(array2);
+  document.getElementById("hasil10").innerHTML = array3.join("-");
+
+  array3.splice(2, 2, "Nangka", "Pisang");
+  document.getElementById("hasil11").innerHTML = array3.join("-");
+
+  array4 = array3.slice(3, 6);
+  document.getElementById("hasil12").innerHTML = array4.join("-");
+
+  delete array4[1];
+  document.getElementById("hasil13").innerHTML = array4.join("-");
+</script>

@@ -1,0 +1,47 @@
+<script>
+  function nama_bualn(b) {
+    let n = "";
+    switch (b) {
+      case 1:
+        n = "Januari";
+        break;
+      case 2:
+        n = "Februari";
+        break;
+      case 3:
+        n = "Maret";
+        break;
+      case 4:
+        n = "April";
+        break;
+      case 5:
+        n = "Mei";
+        break;
+      case 6:
+        n = "Juni";
+        break;
+      case 7:
+        n = "Juli";
+        break;
+      case 8:
+        n = "Agustus";
+        break;
+      case 9:
+        n = "September";
+        break;
+      case 10:
+        n = "Oktober";
+        break;
+      case 11:
+        n = "November";
+        break;
+      case 12:
+        n = "Desember";
+        break;
+      default:
+        n = "Tidak ada bulan ke-" + b;
+    }
+    return n;
+  }
+  document.write("saat ini bulan " + nama_bualn(7));
+</script>
